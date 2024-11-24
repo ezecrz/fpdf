@@ -1772,8 +1772,10 @@ protected function _putimage(&$info)
 			$trns .= $info['trns'][$i].' '.$info['trns'][$i].' ';
 		$this->_put('/Mask ['.$trns.']');
 	}
-	if(isset($info['smask']))
-		$this->_put('/SMask '.($this->n+1).' 0 R');
+	if (isset($info['smask'])) {
+    $this->_put('/SMask '.($this->n+1).' 0 R');
+}
+
 	$this->_put('/Length '.strlen($info['data']).'>>');
 	$this->_putstream($info['data']);
 	$this->_put('endobj');
